@@ -9,6 +9,12 @@ nlmixrver
 # Read data
 homedir="."
 data.pkpd <- read.csv(file = paste(homedir,"warfarin_dat.csv",sep="/"))
+## Convert the dvid data item to compartment names.  The easiest way
+## to do this is to convert it to a factor.
+##
+## Alternatively you could count the compartment number and assign it
+## directly. by data.pkpd$dvid + 2
+##
 data.pkpd$cmt  <- factor(data.pkpd$dvid,c(1,2),c("center","effect"))
 
 pk.turnover.emax <- function() {
@@ -74,17 +80,17 @@ pk.turnover.emax <- function() {
 }
 
 nlmixr(pk.turnover.emax)
-fit.TOF <- nlmixr(pk.turnover.emax, data.pkpd, est="saem")
+fit.TOS <- nlmixr(pk.turnover.emax, data.pkpd, est="saem")
 
 pdf("warfarin-joint-saem.pdf")
-plot(fit.TOF)
-vpc.ui(fit.TOF, stratify="CMT", show=list(obs_dv=T))
+plot(fit.TOS)
+vpc.ui(fit.TOS, stratify="CMT", show=list(obs_dv=T))
 dev.off()
 
 
-fit.TOF2 <- nlmixr(pk.turnover.emax, data.pkpd, est="focei")
-fit.TOF2
+fit.TOF <- nlmixr(pk.turnover.emax, data.pkpd, est="focei")
+fit.TOF
 pdf("warfarin-joint-focei.pdf");
-plot(fit.TOF2)
-vpc.ui(fit.TOF2, stratify="CMT", show=list(obs_dv=T))
+plot(fit.TOF)
+vpc.ui(fit.TOF, stratify="CMT", show=list(obs_dv=T))
 dev.off();
