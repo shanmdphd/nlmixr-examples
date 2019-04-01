@@ -19,7 +19,7 @@ data.pkpd$cmt  <- factor(data.pkpd$dvid,c(1,2),c("center","effect"))
 
 pk.turnover.emax <- function() {
   ini({
-    tktr <- log(0.01)
+    tktr <- log(0.0001)
     tka <- log(1)
     tcl <- log(0.1)
     tv <- log(1)
@@ -88,7 +88,7 @@ vpc.ui(fit.TOS, stratify="CMT", show=list(obs_dv=T))
 dev.off()
 
 
-fit.TOF <- nlmixr(pk.turnover.emax, data.pkpd, est="focei")
+fit.TOF <- nlmixr(pk.turnover.emax, data.pkpd, est="focei",control=list(scaleC0=1e5))
 fit.TOF
 pdf("warfarin-joint-focei.pdf");
 plot(fit.TOF)
