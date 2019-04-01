@@ -84,7 +84,7 @@ vpc.ui(fit.TOS, stratify="CMT", show=list(obs_dv=T))
 dev.off()
 
 
-fit.TOF <- nlmixr(pk.turnover.emax, data.pkpd, est="focei",control=list(scaleC0=1e5))
+fit.TOF <- nlmixr(pk.turnover.emax, data.pkpd, est="focei")
 fit.TOF
 pdf("warfarin-joint-focei.pdf");
 plot(fit.TOF)
