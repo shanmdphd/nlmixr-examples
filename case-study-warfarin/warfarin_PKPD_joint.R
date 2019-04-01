@@ -67,10 +67,6 @@ pk.turnover.emax <- function() {
     d/dt(depot) = -ktr * depot
     d/dt(gut) =  ktr * depot -ka * gut
     d/dt(center) =  ka * gut - cl / v * center
-    f(center)=1
-    lag(center)=0
-    rate(center)=0
-    dur(center)=0
     d/dt(effect) = kin*PD -kout*effect
 
     cp = center / v
