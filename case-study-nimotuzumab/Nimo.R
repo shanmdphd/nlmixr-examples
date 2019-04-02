@@ -74,39 +74,39 @@ plot(fit); ## Standard nlmixr plots
 ################################################################################
 xpdb <- xpose_data_nlmixr(fit) ## first convert to nlmixr object
 
-dv_vs_pred(xpdb) +
-     ylab("Observed Nimotuzumab Concentrations (ug/mL)") +
-     xlab("Population Predicted Nimotuzumab Concentrations (ug/mL)")
+print(dv_vs_pred(xpdb) +
+      ylab("Observed Nimotuzumab Concentrations (ug/mL)") +
+      xlab("Population Predicted Nimotuzumab Concentrations (ug/mL)"))
 
-dv_vs_ipred(xpdb) +
-     ylab("Observed Nimotuzumab Concentrations (ug/mL)") +
-     xlab("Individual Predicted Nimotuzumab Concentrations (ug/mL)")
+print(dv_vs_ipred(xpdb) +
+      ylab("Observed Nimotuzumab Concentrations (ug/mL)") +
+      xlab("Individual Predicted Nimotuzumab Concentrations (ug/mL)"))
 
-res_vs_pred(xpdb) +
-     ylab("Conditional Weighted Residuals") +
-     xlab("Population Predicted Nimotuzumab Concentrations (ug/mL)")
+print(res_vs_pred(xpdb) +
+      ylab("Conditional Weighted Residuals") +
+      xlab("Population Predicted Nimotuzumab Concentrations (ug/mL)"))
 
-res_vs_idv(xpdb) +
-     ylab("Conditional Weighted Residuals") +
-     xlab("Time (h)")
+print(res_vs_idv(xpdb) +
+      ylab("Conditional Weighted Residuals") +
+      xlab("Time (h)"))
 
-prm_vs_iteration(xpdb)
+print(prm_vs_iteration(xpdb))
 
-absval_res_vs_idv(xpdb, res = 'IWRES') +
-     ylab("Individual Weighted Residuals") +
-     xlab("Time (h)")
+print(absval_res_vs_idv(xpdb, res = 'IWRES') +
+      ylab("Individual Weighted Residuals") +
+      xlab("Time (h)"))
 
-absval_res_vs_pred(xpdb, res = 'IWRES') +
-     ylab("Individual Weighted Residuals") +
-     xlab("Population Predicted Nimotuzumab Concentrations (ug/mL)")
+print(absval_res_vs_pred(xpdb, res = 'IWRES') +
+      ylab("Individual Weighted Residuals") +
+      xlab("Population Predicted Nimotuzumab Concentrations (ug/mL)"))
 
-ind_plots(xpdb, nrow=3, ncol=4) +
-     ylab("Predicted and Observed Nimotuzumab concentrations (ug/mL)") +
-     xlab("Time (h)")
+print(ind_plots(xpdb, nrow=3, ncol=4) +
+      ylab("Predicted and Observed Nimotuzumab concentrations (ug/mL)") +
+      xlab("Time (h)"))
 
-res_distrib(xpdb) +
+print(res_distrib(xpdb) +
      ylab("Density") +
-     xlab("Conditional Weighted Residuals")
+     xlab("Conditional Weighted Residuals"))
 
 ################################################################################
 ##Visual Predictive Checks
